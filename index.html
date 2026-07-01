@@ -1537,7 +1537,7 @@
           </div>
 
           <div class="service-item">
-            <h3>📚 Warum sollte das alles dich interessieren?</h3>
+            <h3> Warum sollte das alles dich interessieren?</h3>
             <p>Es ist nicht nur spannend, sondern auch wichtig:</p>
             <ul>
               <li><strong>Deine Zukunft:</strong> Der Haushalt entscheidet über deine Schulen, Schulhofe, Sportanlagen. Mit Mitbestimmung sorgst du dafür, dass es dir und deinen Freunden gut geht.</li>
@@ -1698,13 +1698,13 @@
               <p style="margin:0; font-weight:600; color:var(--text);">Jenaro</p>
             </div>
             <div style="padding:1rem; background:rgba(78,162,255,0.08); border:1px solid rgba(78,162,255,0.2); border-radius:0.85rem; text-align:center;">
+              <p style="margin:0; font-weight:600; color:var(--text);">Kjell</p>
+            </div>
+            <div style="padding:1rem; background:rgba(78,162,255,0.08); border:1px solid rgba(78,162,255,0.2); border-radius:0.85rem; text-align:center;">
               <p style="margin:0; font-weight:600; color:var(--text);">Youssef</p>
             </div>
             <div style="padding:1rem; background:rgba(78,162,255,0.08); border:1px solid rgba(78,162,255,0.2); border-radius:0.85rem; text-align:center;">
               <p style="margin:0; font-weight:600; color:var(--text);">Julius</p>
-            </div>
-            <div style="padding:1rem; background:rgba(78,162,255,0.08); border:1px solid rgba(78,162,255,0.2); border-radius:0.85rem; text-align:center;">
-              <p style="margin:0; font-weight:600; color:var(--text);">Kjell</p>
             </div>
           </div>
           <p style="margin-top:1.5rem; text-align:center; color:var(--text-muted); font-size:0.9rem; padding:0 0.5rem;">Danke für euer Engagement für dieses Bildungsprojekt! 🙏</p>
@@ -2070,16 +2070,22 @@
 
       if (creatorsBadge && creatorsModal) {
         creatorsBadge.addEventListener('click', () => {
-          creatorsModal.classList.add('active');
+          creatorsModal.hidden = false;
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          setTimeout(() => {
+            creatorsModal.classList.add('active');
+          }, 220);
         });
 
         closeCreatorsModal.addEventListener('click', () => {
           creatorsModal.classList.remove('active');
+          creatorsModal.hidden = true;
         });
 
         creatorsModal.addEventListener('click', (e) => {
           if (e.target === creatorsModal) {
             creatorsModal.classList.remove('active');
+            creatorsModal.hidden = true;
           }
         });
       }
@@ -2087,8 +2093,14 @@
       // Close modals on Escape
       document.addEventListener('keydown', (ev) => {
         if (ev.key === 'Escape') {
-          if (versionModal) versionModal.classList.remove('active');
-          if (creatorsModal) creatorsModal.classList.remove('active');
+          if (versionModal) {
+            versionModal.classList.remove('active');
+            versionModal.hidden = true;
+          }
+          if (creatorsModal) {
+            creatorsModal.classList.remove('active');
+            creatorsModal.hidden = true;
+          }
         }
       });
     </script>
