@@ -375,6 +375,51 @@
         color: var(--primary);
       }
 
+      .hover-qa-list {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .hover-detail {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 1rem;
+        padding: 0.95rem 1rem;
+        transition: background 220ms ease, border-color 220ms ease, transform 220ms ease;
+      }
+
+      .hover-detail:hover {
+        background: rgba(78, 162, 255, 0.1);
+        border-color: rgba(78, 162, 255, 0.3);
+        transform: translateX(2px);
+      }
+
+      .hover-detail-label {
+        font-weight: 700;
+        color: var(--text);
+        display: block;
+      }
+
+      .hover-detail-content {
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        margin-top: 0;
+        transition: max-height 240ms ease, opacity 240ms ease, margin-top 240ms ease;
+        color: var(--text-muted);
+        font-size: 0.95rem;
+      }
+
+      .hover-detail:hover .hover-detail-content {
+        max-height: 10rem;
+        opacity: 1;
+        margin-top: 0.75rem;
+      }
+
+      .hover-detail-content p {
+        margin: 0;
+      }
+
       .modal-backdrop {
         position: fixed;
         top: 0;
@@ -1403,30 +1448,32 @@
         </div>
 
         <div class="info-cards">
-          <article class="info-card absolute top-[393.797px] bottom-[855.875px] left-6">
+          <article class="info-card">
             <h3>Einfach erklärt: Was bedeutet der Haushalt?</h3>
             <p>Ein Haushalt ist wie ein großer Plan für Geld. Er zeigt, wie viel die Stadt ausgibt und wofür sie das Geld verwendet.</p>
             <p>Wenn du zum Beispiel eine neue Skate-Anlage willst, dann muss im Haushalt genug Geld dafür eingeplant sein. Die Stadt entscheidet, ob das möglich ist.</p>
             <p>Der Haushalt hilft dabei, faire Entscheidungen zu treffen: zuerst das Wichtigste, dann das Nützliche und am Ende die schönen extra Projekte.</p>
           </article>
-          <article class="info-card absolute top-[400.797px] right-[566.109px] bottom-[870.875px] left-6">
-            <h3>Zum Anklicken: Was willst du wissen?</h3>
-            <details>
-              <summary><strong class="term">Steuern<span class="tooltip">Geld, das alle bezahlen, um Schulen, Straßen und Dienste zu bezahlen.</span></strong> — Was ist das?</summary>
-              <p>Steuern ist Geld, das wir alle geben. Ein Teil davon bezahlt Straßen, Schulen und Parks. Es gibt verschiedene Steuern: die Grundsteuer (für Häuser), Gewerbesteuer (für Läden) und viele mehr.</p>
-            </details>
-            <details>
-              <summary><strong class="term">Fördermittel<span class="tooltip">Zuschüsse von Bund oder Land, um große Projekte zu bezahlen.</span></strong> — Was bedeutet das?</summary>
-              <p>Fördermittel sind Zuschüsse von Bund oder Land. Sie helfen, größere Projekte wie Bahnhofs-Sanierung oder Klimaschutz zu bezahlen. Ohne diese Hilfe könnten viele Projekte nicht umgesetzt werden.</p>
-            </details>
-            <details>
-              <summary><strong class="term">Haushaltsplan<span class="tooltip">Schriftlicher Plan für alle Einnahmen und Ausgaben der Stadt.</span></strong> — Warum ist das wichtig?</summary>
-              <p>Der Plan sagt, wofür Geld bestimmt ist. Er macht klar, was zuerst bezahlt wird und was später möglich ist. So können alle sehen, ob die Stadt gut wirtschaftet.</p>
-            </details>
-            <details>
-              <summary><strong class="term">Einnahmen<span class="tooltip">Geld, das die Stadt bekommt (z.B. durch Steuern und Gebühren).</span></strong> — Wo kommt das Geld her?</summary>
-              <p>Einnahmen sind alle Geldquellen. Die Stadt bekommt Geld aus Steuern (von Bürgern und Firmen), Gebühren (z.B. für Parkplätze, Wasser, Müll), Zuschüsse vom Land/Bund und manchmal auch durch Verkauf von städtischen Grundstücken.</p>
-            </details>
+          <article class="info-card">
+            <h3>Was willst du wissen?</h3>
+            <div class="hover-qa-list">
+              <div class="hover-detail">
+                <div class="hover-detail-label"><strong class="term">Steuern<span class="tooltip">Geld, das alle bezahlen. Mit diesem Geld baut die Stadt Straßen, Schulen und vieles mehr.</span></strong> — Was ist das?</div>
+                <div class="hover-detail-content"><p>Steuern ist Geld, das wir alle geben. Ein Teil davon bezahlt Straßen, Schulen und Parks. Es gibt verschiedene Steuern: die Grundsteuer (für Häuser), Gewerbesteuer (für Läden) und viele mehr.</p></div>
+              </div>
+              <div class="hover-detail">
+                <div class="hover-detail-label"><strong class="term">Fördermittel<span class="tooltip">Zuschüsse von Bund oder Land, um große Projekte zu bezahlen.</span></strong> — Was bedeutet das?</div>
+                <div class="hover-detail-content"><p>Fördermittel sind Zuschüsse von Bund oder Land. Sie helfen, größere Projekte wie Bahnhofs-Sanierung oder Klimaschutz zu bezahlen. Ohne diese Hilfe könnten viele Projekte nicht umgesetzt werden.</p></div>
+              </div>
+              <div class="hover-detail">
+                <div class="hover-detail-label"><strong class="term">Haushaltsplan<span class="tooltip">Schriftlicher Plan für alle Einnahmen und Ausgaben der Stadt.</span></strong> — Warum ist das wichtig?</div>
+                <div class="hover-detail-content"><p>Der Plan sagt, wofür Geld bestimmt ist. Er macht klar, was zuerst bezahlt wird und was später möglich ist. So können alle sehen, ob die Stadt gut wirtschaftet.</p></div>
+              </div>
+              <div class="hover-detail">
+                <div class="hover-detail-label"><strong class="term">Einnahmen<span class="tooltip">Geld, das die Stadt bekommt (z.B. durch Steuern und Gebühren).</span></strong> — Wo kommt das Geld her?</div>
+                <div class="hover-detail-content"><p>Einnahmen sind alle Geldquellen. Die Stadt bekommt Geld aus Steuern (von Bürgern und Firmen), Gebühren (z.B. für Parkplätze, Wasser, Müll), Zuschüsse vom Land/Bund und manchmal auch durch Verkauf von städtischen Grundstücken.</p></div>
+              </div>
+            </div>
           </article>
         </div>
 
@@ -2110,6 +2157,9 @@
     </script>
   </body>
 </html>
+
+
+
 
 
 
